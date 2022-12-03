@@ -1,0 +1,368 @@
+@font-face {
+    font-family: Fight;
+    src: url("FIGHTT3_.ttf");
+}
+
+*{
+    font-size: 1.8vh;
+}
+
+body { 
+    overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+.life-inimigo{
+    width: 25vw;
+    height: 2vh;
+    border-radius: 100vh;
+}
+
+.life-inimigo .progress-bar{
+    background-color: crimson;
+}
+
+#info-inimigo{
+    width: 30vw;
+    height: 10vh;
+    background-color: lightgrey;
+    border-bottom-right-radius: 20vh;
+}
+
+.life-user{
+    width: 40vw;
+    height: 5vh;
+    border-radius: 100vh;
+}
+
+#info-user span{
+    font-size: 3.5vh;
+}
+
+#info-inimigo span{
+    font-size: 3vh;
+}
+
+#Hud-Lateral .col div{
+    margin-bottom: 2vh;
+    margin-top: 0;
+    margin-left: 1.5vh;
+}
+
+#Hud-Lateral .life-user{
+    width: 5vw;
+    height: 1vh;
+}
+
+#Hud-Lateral .progress-bar{
+    margin: 0vh !important;
+    margin-left: 0vh !important;
+}
+
+#Hud-Lateral .progress{
+    margin-right: 2vw;
+}
+
+#Hud-Lateral .col div{
+   top: 0 !important;
+   right: 1vw !important;
+}
+
+#Hud-Lateral .progress-bar{
+    width: 1vw;
+    height: 1vh;
+    border-radius: 100vh;  
+    color: transparent;
+}
+
+#inimigo{
+    background-image: url("sprites/HCL03.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+    width: 30vh;
+    position: absolute;
+    top: 20vh;
+    left: 10vw;
+    transform: skew(-5deg);
+    -webkit-transition: 0.8s linear 0.1s;
+    -moz-transition: 0.8s linear 0.1s;
+    -o-transition: 0.8s linear 0.1s;
+    transition: 0.8s linear 0.1s;
+    transition: left 0.8s ease-in-out;
+    transition: top 0.8s ease-in-out;
+    transition: filter 0.5s ease-in-out;
+   
+}
+
+#user{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+    width: 30vh;
+    position: absolute;
+    top: 45vh;
+    left: 70vw;
+    transform: scaleX(-1) skew(5deg);
+    -webkit-transition: 0.8s linear 0.1s;
+    -moz-transition: 0.8s linear 0.1s;
+    -o-transition: 0.8s linear 0.1s;
+    transition: 0.8s linear 0.1s;
+    transition: background-image 0.8s ease-in-out;
+    transition: left 0.8s ease-in-out;
+    transition: top 0.8s ease-in-out;
+    transition: filter 0.5s ease-in-out;
+}
+
+
+.life-user .progress-bar{
+    background-color: crimson;
+}
+
+#placar{
+    background-color: lightgrey;
+    border-bottom-left-radius: 100vh;
+    border-bottom-right-radius: 100vh;
+    width: 16vh;
+    font-size: 3vh;
+    margin: auto;
+    margin-bottom: 2vh !important;
+}
+
+#Arena{
+    width: 101vw;
+    height: 100vh;
+    float: left;
+    background-image: url("batalha_background_.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Hud-Superior{
+    position: absolute;
+    width: 101vw;
+}
+
+#Hud-Inferior{
+    width: 101vw;
+    height: 16vh;
+    position: absolute;
+    bottom: 0;
+    background-color: lightgrey;
+}
+
+#Hud-Lateral{
+    position: absolute;
+    right: 1.1vh;
+    top: 25vh;
+    height: 50vh;
+    width: 8vw;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    border-top-left-radius: 10vh;
+    border-bottom-left-radius: 10vh;
+    background-color: lightgrey;
+}
+
+#TROCAR{
+    width: 50vw !important;
+    position: absolute;
+    top: 20vh;
+    right: -12.5vw;
+}
+
+.Açao{
+    width: 95% !important;
+    height: 5vh !important;
+}
+
+.btn{
+    border: 0.25vh !important;
+    font-size: 2.5vh !important;
+}
+
+#combinações{
+    padding: 1.6vh;
+}
+
+.border{
+    border-width: 0.25vh !important;
+}
+
+#opções{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#opções button{
+    height: 5vh;
+    width: 5vh;
+    padding: 0;
+    padding-top: 0.5vh;
+}
+
+#opções .material-icons{
+    font-size: 4vh !important;
+}
+
+#Hud-Lateral .col div{
+    position: relative;
+    top: 2vh;
+    left: 0.5vw;
+    font-size: 2.5vh;
+    margin-bottom: 5vh;
+}
+
+#Hud-Lateral .btn-primary{
+    background-color: transparent !important;
+    color: black;
+    padding: 0;
+}
+
+#Nome-user{
+    font-size: 3.5vh;
+}
+
+#Nome-inimigo{
+    font-size: 2vh;
+}
+
+.modal-body{
+    border: 0;
+}
+
+.modal-header{
+    border: 0;
+}
+
+input{
+    border: 0.25vh !important;
+}
+
+.offcanvas{
+    width: 33vw !important;
+}
+
+hr{
+    height: 0.25vh !important;
+}
+
+#Vitoria .modal-content{
+    width: 95vw !important;
+    height: 70vh !important;
+    margin: 0 !important;
+    position: absolute;
+    top: 10vh;
+    border-style: groove;
+    border-width: 3vh;
+    border-color: darkgoldenrod goldenrod;
+    border-radius: 5vh;
+    background-color: rgb(253, 244, 190);
+
+}
+
+#Vitoria .modal-dialog{
+    margin-right: 5vh;
+    margin-left: 5vh;
+}
+
+#Vitoria {
+    width: 101vw;
+    text-align: center;
+    background-color: rgba(50, 50, 48, 0.718);
+}
+
+#Vitoria h5{
+    font-size: 20vh;
+    position: relative;
+    left: 34vw;
+    color: gold;
+    font-family: Fight;
+   
+}
+
+#Vitoria a{
+    font-size: 5vh !important;
+    position: relative;
+    left: 30vw;
+    top: 5vh;
+}
+
+#Vitoria p{
+    font-family: Fight;
+    font-size: 5vh;
+}
+
+#Derrota{
+    width: 101vw;
+    text-align: center;
+    background-color: rgba(50, 50, 48, 0.718);
+}
+
+#Derrota a{
+    font-size: 5vh !important;
+    position: relative;
+    left: 30vw;
+    top: 5vh;
+}
+
+#Derrota p{
+    font-family: Fight;
+    font-size: 5vh;
+}
+
+#Derrota .modal-content{
+    width: 95vw !important;
+    height: 70vh !important;
+    margin: 0 !important;
+    position: absolute;
+    top: 10vh;
+    border-style: groove;
+    border-width: 3vh;
+    border-color: rgb(26, 26, 26) rgb(36, 36, 36);
+    border-radius: 5vh;
+}
+
+#Derrota .modal-dialog{
+    margin-right: 5vh;
+    margin-left: 5vh;
+}
+
+
+#Derrota h5{
+    font-size: 20vh;
+    position: relative;
+    left: 28vw;
+    color: crimson;
+    font-family: Fight;
+}
+
+#nomenclatura{
+    background-color: rgba(56, 56, 56, 0.144);
+    margin-bottom: 2vh;
+}
+
+.img{
+    display: none;
+}
+
+#Hud-Lateral .img{
+    display: block;
+    height: 8vh;
+    width: 8vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tipo{
+    background-color: darkseagreen;
+    color: darkgreen;
+    border-radius: 30vh;
+    padding: 0.5vh;
+    margin-left: 0.5vh;
+    font-size: 1.8vh !important;
+}
+
+#opções button{
+    margin-right: 1vh;
+}

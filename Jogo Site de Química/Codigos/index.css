@@ -1,0 +1,297 @@
+@font-face {
+    font-family: pokemon;
+    src: url("Pokemon Hollow.ttf");
+}
+
+@font-face {
+    font-family: pixel;
+    src: url("Minecraft.ttf");
+}
+
+body{
+    background-image: url(Wallpaper-QF-3-scaled.jpg);
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#title{
+    font-family: pokemon;
+    font-size: 10vh;
+    text-align: center;
+    color: white;
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+}
+  
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.button {
+    min-width: 16.6vw;
+    min-height: 6vh;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2vh;
+    text-transform: uppercase;
+    letter-spacing: 0.13vh;
+    font-weight: bolder;
+    color: #313133;
+    background: #55f72c;
+    background: linear-gradient(90deg, rgb(43, 197, 12) 0%, rgb(69, 247, 24) 100%);
+    border: none;
+    border-radius: 105vh;
+    box-shadow: 1.26vh 1.26vh 2.5vh rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    bottom: 35vh;
+    padding: 1.05vh;
+}
+  
+button::before {
+    content: '';
+    border-radius: 105vh;
+    min-width: calc(16.6vw + 0.6vw);
+    min-height: calc(6.3vh + 1.26vh);
+    border: 1vh solid #09ff00;
+    box-shadow: 0 0 60px rgba(60, 255, 0, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+  
+.button:hover, .button:focus {
+    color: #313133;
+    transform: translateY(-0.6vh);
+}
+  
+button:hover::before, button:focus::before {
+    opacity: 1;
+}
+  
+button::after {
+    content: '';
+    width: 1.66vh;
+    height: 3.15vh;
+    border-radius: 100%;
+    border: 0.6vh solid #9bff3d;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+  
+button:hover::after, button:focus::after {
+    animation: none;
+    display: none;
+}
+  
+@keyframes ring {
+    0% {
+      width: 1.66vw;
+      height: 3.15vh;
+      opacity: 1;
+    }
+
+    100% {
+      width: 16.6vw;
+      height: 31.5vh;
+      opacity: 0;
+    }
+}
+
+#som{
+    color: white;
+    margin-top: 5.25vh;
+}
+
+#integrantes{
+    font-family: pixel;
+    color: rgb(10, 10, 10);
+    text-align: center;
+    font-size: 2vh !important;
+}
+
+#sobre{
+    margin-top: 13.65vh;
+    background-color: rgba(209, 219, 236, 0.884);
+    border: 0.25vh solid cornflowerblue;
+    border-radius: 2.1vh;
+    width: 19.37vw;
+    margin-left: 5.25vh;
+    position: relative;
+    bottom: 80vh;
+}
+
+#imagem{
+    margin-top: 21vh;
+    height: 10.5vh;
+    display: grid;
+    grid-template-rows: 2.76vw 1.1vw;
+    grid-template-columns: 1fr 4.2vh 4.2vh 4.2vh 4.2vh 4.2vh 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 0vh;
+}
+
+main#carousel {
+    grid-row: 1 / 2;
+    grid-column: 1 / 8;
+    width: 100vw;
+    height: 42vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 52.52vh;
+    --items: 5;
+    --middle: 3;
+    --position: 1;
+    pointer-events: none;
+  }
+  
+  div.item {
+    margin-left: 23.1vh;
+    position: absolute;
+    width: 22.14vw;
+    height: 36.76vh;
+    --r: calc(var(--position) - var(--offset));
+    --abs: max(calc(var(--r) * -1), var(--r));
+    transition: all 0.25s linear;
+    transform: rotateY(calc(-10deg * var(--r)))
+      translateX(calc(-16.6vw * var(--r)));
+    z-index: calc((var(--position) - var(--abs)));
+  }
+  
+  div.item:nth-of-type(1) {
+    --offset: 1;
+  }
+  div.item:nth-of-type(2) {
+    --offset: 2;
+  }
+  div.item:nth-of-type(3) {
+    --offset: 3;
+  }
+  div.item:nth-of-type(4) {
+    --offset: 4;
+  }
+  div.item:nth-of-type(5) {
+    --offset: 5;
+  }
+  
+  input:nth-of-type(1) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  input:nth-of-type(1):checked ~ main#carousel {
+    --position: 1;
+  }
+  
+  input:nth-of-type(2) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  input:nth-of-type(2):checked ~ main#carousel {
+    --position: 2;
+  }
+  
+  input:nth-of-type(3) {
+    grid-column: 4 /5;
+    grid-row: 2 / 3;
+  }
+  input:nth-of-type(3):checked ~ main#carousel {
+    --position: 3;
+  }
+  
+  input:nth-of-type(4) {
+    grid-column: 5 / 6;
+    grid-row: 2 / 3;
+  }
+  input:nth-of-type(4):checked ~ main#carousel {
+    --position: 4;
+  }
+  
+  input:nth-of-type(5) {
+    grid-column: 6 / 7;
+    grid-row: 2 / 3;
+  }
+  input:nth-of-type(5):checked ~ main#carousel {
+    --position: 5;
+  }  
+
+  input[type="radio" i]{
+    height: 2vh;
+    width: 2vh;
+  }
+
+
+#NH4OH{
+    height: 21vh;
+    width: 11vw;
+}
+
+#CaCO3{
+    height: 21vh;
+    width: 11vw;
+}
+
+#HCL03{
+    height: 21vh;
+    width: 11vw;
+}
+
+#HI{
+    height: 21vh;
+    width: 11vw;
+}
+
+#NaNO3{
+    height: 21vh;
+    width: 11vw;
+}
+
+.stars{
+	width: 0.16vw;
+	height: 0.31vh;
+	border-radius: 50%;
+    box-shadow: 5.25vh 1.66vw white,
+    100px 120px white,
+    200px 500px white,
+    200px 100px white,
+    250px 130px white,
+    100px 180px white,
+    150px 300px white,
+    320px 400px white,
+    320px 200px white,
+    320px 530px white,
+    200px 350px white,
+    240px 240px white,
+    150px 600px white,
+    50px 400px white;
+    animation: anim-stars 10s linear infinite;
+}
+
+@keyframes anim-stars {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-150px);
+    }
+}
+

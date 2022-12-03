@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="./Style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="icon1" href="Icon.png" id="iconaba">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous" defer></script>
+        <script src="./Script.js" defer></script>
+        <title>Quimomon</title>
+    </head>
+    <body>
+        <audio autoplay="autoplay" loop></audio> 
+            <source src="./videoplayback.mp3" type="audio/mp3">
+        </audio>
+        <div id="Arena">
+            <div id="inimigo" class="personagem Acido" style="background-image: url('sprites/HCL03.png');">
+                
+            </div>
+            <div id="user"class="personagem Acido" style="background-image: url('sprites/Al2O3.png');">
+                
+            </div>
+        </div>
+
+        <div id="Hud-Superior" class="row">
+            <div id="info-inimigo" class="col shadow-sm" style="padding: 2vh; padding-left: 4vh;">
+                <div id="Nome-inimigo">
+                    <span>HClO<sub>3</sub></span> <span class='tipo'>Acido</span>
+                </div>
+                <div class="progress life-inimigo">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="200" aria-valuemin="0" aria-valuemax="200" id="life-I">200/200</div>
+                </div>
+            </div>
+
+            <div class=" text-center col shadow-sm">
+                <div id="placar">1/3</div>
+            </div>
+
+            <div id="opções" class="col row">
+                <button class="btn btn-primary shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <span class="material-icons">
+                        reorder
+                    </span>
+                </button>
+            </div>
+        </div>
+        
+        <div id="Hud-Lateral" class="border row shadow-sm">
+            <div class="col" id="Reserva">
+                <div id="R1" name="HidroxidoDeAmonio" >
+                    <span>
+                        NH<sub>4</sub>OH <span class="tipo">Base</span>
+                    </span>
+                    <div class="img" style="background-image: url(sprites/NH4OH.png);"></div>
+                </div>
+                <div id="R2" name="OxidoDeZinco">
+                    <span>
+                        ZnO <span class="tipo">Oxido</span>
+                    </span>
+                    <div class="img" style="background-image: url(sprites/ZnO.png);"></div>
+                </div>
+                <div id="R3" name="NitratoDeSodio">
+                    <span>
+                        NaNO<sub>3</sub> <span class="tipo">Sal</span>
+                    </span> 
+                    <div class="img" style="background-image: url(sprites/NaNO3.png);"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Hud-Inferior" class="border row shadow-sm">
+            <div class="col" style="padding: 2vh; padding-left: 4vh;">
+                <div id="info-user" name="AcidoCromico">
+                    <span>
+                        H<sub>2</sub>CrO<sub>4</sub> <span class="tipo">Acido</span>
+                    </span>
+                    <div class="img" style="background-image: url(sprites/Al2O3.png);"></div>
+                </div>
+                <div class="progress life-user">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="200" aria-valuemin="0" aria-valuemax="200" id="life-U">200/200</div>
+                </div>    
+            </div>
+            <div id="combinações" class="col row">
+                <div class="col">
+                    <button class="btn btn-primary Açao shadow-sm" type="button" id="Agir" onclick="Rodada( RodadaInimigo(), Ações('user'))">
+                        Agir
+                    </button>
+                    <br><br>
+                    <button class="btn btn-primary Açao shadow-sm" type="button" id="Esquivar" onclick="Rodada( RodadaInimigo(), 'Esquivar')">
+                        Esquivar
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary Açao shadow-sm" type="button" id="Trocar" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="Rodada(RodadaInimigo(), Trocar())">
+                        Trocar
+                    </button>
+                    <br><br>
+                    <button class="btn btn-primary Açao shadow-sm" type="button" id="Esperar" onclick="Rodada(RodadaInimigo(), 'Nada')">
+                        Esperar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trocar -->
+        <div class="modal fade row" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog col">
+              <div class="modal-content mx-auto" id="TROCAR">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Elementos</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="ReservaTrocar">
+
+                    </div>
+                    <form class="mx-4">
+                        <fieldset>
+                            <legend>Troca de Substância:</legend>
+                            <p>Coloque a nomenclatura correta da substancia desejada</p>
+                            <label for="nomenclatura" class="form-label">Nomenclatura:</label>
+                            <input type="text" class="form-control shadow-sm" id="nomenclatura" aria-label="Nomenclatura">
+                            <button type="submit" id="Submit" class="btn btn-primary shadow-sm" data-bs-dismiss="modal">Trocar</button>
+                        </fieldset>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Vitoria -->
+        <div class="modal fade row" id="Vitoria" tabindex="-1" aria-labelledby="VitoriaLabel" aria-hidden="true">
+            <div class="modal-dialog col">
+              <div class="modal-content mx-auto">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="VitoriaLabel">Vitória</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Parabéns você venceu a fase 1! pronto para proxima?</p>
+                    <a href="./Fase2.html" class="btn btn-primary shadow-sm">Proxima Fase</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Derrota -->
+        <div class="modal fade row" id="Derrota" tabindex="-1" aria-labelledby="DerrotaLabel" aria-hidden="true">
+            <div class="modal-dialog col">
+              <div class="modal-content mx-auto">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="DerrotaLabel">Game Over</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Não foi dessa vez... Mas não desista tente novamente!</p>
+                    <a href="./Fase1.html" class="btn btn-primary shadow-sm">Tentar Novamente</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <!-- BARRA LATERAL -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasExampleLabel">Tutorial</h3>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" id="Tutorial">
+                <h5>Agir</h5>
+                <p>O botão agir depende da classificação da substancia, como é mostrado na tabela abaixo</p>
+                <table class="table">
+                    <thead>
+                      <tr class="table-secondary">
+                        <th scope="col">Classificação</th>
+                        <th scope="col">Ação</th>
+                        <th scope="col">Efeito</th>
+                        <th scope="col">Chance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Acido</th>
+                        <td>Atacar</td>
+                        <td>10/15 de dano</td>
+                        <td>100%</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Base</th>
+                        <td>Curar</td>
+                        <td>+10 de vida</td>
+                        <td>100%</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Oxido</th>
+                        <td>Defender</td>
+                        <td>-0 de vida</td>
+                        <td>100%</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Sal</th>
+                        <td>Contra-Ataca</td>
+                        <td>15 de dano</td>
+                        <td>60%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+                  <br>
+                  <h5>Esquivar</h5>
+                  <p>O botão esquivar faz com que voce esquive, não sendo atacado em 50% dos casos</p>
+                  <br>
+                  <hr>
+                  <h5>Trocar</h5>
+                  <p>O botão trocar permite com que você troque a substância, para isso voce deve escrever corretamente a nomenclatura do elemento.</p>
+                  <br>
+                  <hr>
+                  <h5>Esperar</h5>
+                  <p>Você passa sua vez</p>
+            </div>
+        </div>
+
+
+        
+    </body>
+</html>
