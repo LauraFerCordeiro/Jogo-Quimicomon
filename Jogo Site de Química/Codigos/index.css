@@ -1,4 +1,170 @@
 @font-face {
+    font-family: Fight;
+    src: url("FIGHTT3_.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1.8vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ---------- Animação de fundo ---------- */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('stars.png') repeat;
+    animation: moveStars 40s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+/* ---------- Título ---------- */
+#title {
+    font-family: Fight;
+    font-size: 8vh;
+    text-align: center;
+    margin-top: 4vh;
+    color: #00ffff;
+    text-shadow: 0 0 1vh #00ffff, 0 0 2vh #0ff;
+}
+
+/* ---------- Carrossel ---------- */
+#imagem {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+#carousel {
+    display: flex;
+    justify-content: center;
+    gap: 2vh;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+#carousel img {
+    height: 15vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+#carousel img:hover {
+    transform: scale(1.2);
+}
+
+/* ---------- Botão START ---------- */
+.wrap {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    font-family: Fight;
+    font-size: 3.5vh;
+    color: white;
+    background: linear-gradient(90deg, #00ffff, #0066ff);
+    border: none;
+    border-radius: 50px;
+    padding: 1.5vh 5vh;
+    cursor: pointer;
+    box-shadow: 0 0 1vh #00ffff;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 2vh #00ffff;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0.5vh #00ffff; }
+    50% { box-shadow: 0 0 2vh #00ffff; }
+    100% { box-shadow: 0 0 0.5vh #00ffff; }
+}
+
+/* ---------- Texto inferior ---------- */
+#sobre {
+    text-align: center;
+    margin-top: 5vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2vh;
+    width: 85%;
+    max-width: 500px;
+    font-size: 2vh;
+}
+
+#integrantes {
+    color: #fff;
+    line-height: 3vh;
+}
+
+#som {
+    text-align: center;
+    font-size: 2vh;
+    margin-top: 3vh;
+    opacity: 0.8;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+    #title {
+        font-size: 6vh;
+    }
+
+    .button {
+        font-size: 2.5vh;
+        padding: 1.2vh 4vh;
+    }
+
+    #carousel img {
+        height: 12vh;
+    }
+
+    #sobre {
+        font-size: 1.8vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #title {
+        font-size: 5vh;
+    }
+
+    .button {
+        font-size: 2.2vh;
+    }
+}
+
+
+
+/* 
+@font-face {
     font-family: pokemon;
     src: url("Pokemon Hollow.ttf");
 }
@@ -344,6 +510,6 @@ main#carousel {
 
     main#carousel {
         height: 25vh;
-    }
+    } */
 }
 
