@@ -47,32 +47,60 @@ body {
     text-shadow: 0 0 1vh #00ffff, 0 0 2vh #0ff;
 }
 
-/* ---------- Carrossel ---------- */
+/* ---------- Carrossel aprimorado ---------- */
 #imagem {
-    margin-top: 3vh;
+    margin-top: 4vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 1000px;
+    perspective: 1000px;
 }
 
 #carousel {
     display: flex;
     justify-content: center;
-    gap: 2vh;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    align-items: center;
+    gap: 4vh;
+    overflow: hidden;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
 }
 
 #carousel img {
-    height: 15vh;
-    transition: transform 0.3s ease-in-out;
+    height: 28vh;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+    cursor: pointer;
 }
 
 #carousel img:hover {
-    transform: scale(1.2);
+    transform: scale(1.4) rotateY(10deg);
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1));
+}
+
+/* Efeito suave de flutuação dos bichinhos */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1.5vh);
+    }
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 768px) {
+    #carousel img {
+        height: 22vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #carousel img {
+        height: 18vh;
+    }
 }
 
 /* ---------- Botão START ---------- */
