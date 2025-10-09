@@ -27,7 +27,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url('stars.png') repeat;
+    background: url('stars.jpg') repeat;
     animation: moveStars 40s linear infinite;
     z-index: -1;
 }
