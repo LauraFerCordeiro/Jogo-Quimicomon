@@ -11,6 +11,36 @@
 }
 
 body {
+    background-color: #000;
+    background-image:
+        url("../Imagens/quimica-pattern.png"),
+        radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+    background-repeat: repeat, no-repeat;
+    background-position: center, center;
+    background-size: 600px, cover;
+    background-attachment: fixed;
+    color: #fff;
+    font-family: 'OpenSans', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Efeito de coloração e brilho neon no padrão */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../Imagens/quimica-pattern.png") repeat;
+    background-size: 600px;
+    opacity: 0.08; /* intensidade do desenho no fundo */
+    filter: hue-rotate(180deg) brightness(1.8) saturate(2);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 
+body {
     overflow-x: hidden;
     background: radial-gradient(circle at center, #111 0%, #000 100%);
     color: white;
@@ -20,7 +50,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
+} */
 
 /* ---------- Animação de fundo ---------- */
 .stars {
