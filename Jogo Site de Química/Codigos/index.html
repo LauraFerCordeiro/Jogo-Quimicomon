@@ -15,7 +15,7 @@
 
     <div class="stars"></div>
 
-    <h1 id="title">Quimicomon</h1>
+    <h1 id="titulo-quimicomon">Quimicomon</h1>
 
     <div id="imagem">
         <main id="carousel">
@@ -45,5 +45,15 @@
     <div id="som">
         <h3>Ative o som para uma melhor experiência!</h3>
     </div>
+
+    <script>
+      const carousel = document.getElementById("carousel");
+      let index = 0;
+      setInterval(() => {
+        index = (index + 1) % carousel.children.length;
+        carousel.style.transform = `translateX(-${index * 25}%)`;
+      }, 2000);
+    </script>
+
 </body>
 </html>
