@@ -13,7 +13,7 @@
 body {
     background-color: #000;
     background-image:
-        url("../Imagens/quimica-pattern.png"),
+        url("Imagens/quimica-pattern.png"),
         radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
     background-repeat: repeat, no-repeat;
     background-position: center, center;
